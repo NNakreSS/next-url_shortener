@@ -1,5 +1,5 @@
 const HamburgerMenu = () => {
-  return <div>HamburgerMenu</div>;
+  return <div className="hidden">HamburgerMenu</div>;
 };
 
 export default HamburgerMenu;
