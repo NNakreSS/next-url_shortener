@@ -9,7 +9,7 @@ function Menu() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex gap-5 text-dark-green text-2xl">
+    <nav className="flex gap-5 text-dark-green font-normal text-2xl">
       <Link className={pathname == "/" ? "active" : ""} href="/">
         Anasayfa
       </Link>
