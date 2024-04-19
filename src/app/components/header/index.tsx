@@ -17,7 +17,7 @@ const Header = () => {
     >
       <Logo />
       <Menu />
-      <LoginButton />
+      <LoginButton className="hidden md:block" />
       <HamburgerMenu />
     </header>
   );
