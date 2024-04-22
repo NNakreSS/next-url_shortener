@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(inter.className, "bg-background")}>
-        <div className="container content-between min-h-screen grid grid-cols-12 md:gap-x-5 m-auto">
+        <div className="container grid grid-cols-12 md:gap-x-5 m-auto">
           <Header />
-          <main className="flex-grow col-span-full px-1 md:px-10 lg:px-40">
+          <main className="col-span-full px-1 md:px-10 lg:px-40">
             {children}
           </main>
           <Footer />
