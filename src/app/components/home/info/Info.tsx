@@ -46,8 +46,8 @@ function Info() {
             })}
           >
             <div className="flex flex-wrap gap-5">
-              <h2 className="text-6xl font-medium">{card.title}</h2>
-              <p className="text-2xl font-light">{card.text}</p>
+              <h2 className="text-4xl md:text-6xl font-medium">{card.title}</h2>
+              <p className="text-xl md:text-2xl font-light">{card.text}</p>
             </div>
             <hr className="my-5 text-gray" />
             <div className="font-light">
