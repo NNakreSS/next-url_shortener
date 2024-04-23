@@ -36,8 +36,8 @@ function Info() {
       {infoCards.map((card, i) => (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <Image
-            src={""}
-            alt=""
+            src={card.image ?? ""}
+            alt="Info Card Image"
             className="bg-gray/20 rounded-md min-h-[55vh]"
           />
           <div
