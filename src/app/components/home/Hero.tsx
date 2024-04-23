@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 function Hero() {
   return (
-    <section className="py-12 grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+    <section className="py-12 grid grid-cols-1 lg:grid-cols-2 gap-5 w-full">
       <div>
         <Image
           className="object-cover w-3/4 md:w-full m-auto"
