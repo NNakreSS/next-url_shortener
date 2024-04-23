@@ -27,7 +27,7 @@ function Hero() {
             "flex flex-wrap content-center gap-10 justify-center"
           )}
         >
-          <div className="text-5xl md:text-6xl flex flex-wrap items-center justify-center gap-5">
+          <div className="text-4xl md:text-6xl flex flex-wrap items-center justify-center gap-5">
             <h1>
               <span className="text-green mb-5">Link</span>lerini Kısalt
             </h1>
