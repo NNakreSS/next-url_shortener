@@ -39,8 +39,8 @@ function Services() {
         "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 text-white"
       )}
     >
-      {ServicesData.map(({ title, text, icon: Icon }) => (
-        <div className="flex flex-col gap-5 p-5 bg-Blue rounded-md">
+      {ServicesData.map(({ title, text, icon: Icon }, i) => (
+        <div key={i} className="flex flex-col gap-5 p-5 bg-Blue rounded-md">
           <Icon className="text-4xl md:text-5xl" />
           <h4 className="text-2xl md:text-3xl font-medium">{title}</h4>
           <p className="text-lg md:text-xl font-light text-off-wite">{text}</p>

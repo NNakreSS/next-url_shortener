@@ -34,7 +34,7 @@ function Info() {
   return (
     <section className={clsx(kanit.className, "flex flex-wrap gap-10 py-12")}>
       {infoCards.map((card, i) => (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+        <div key={i} className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <Image
             src={card.image ?? ""}
             alt="Info Card Image"
@@ -52,8 +52,8 @@ function Info() {
             <hr className="my-5 text-gray" />
             <div className="font-light">
               <ul className="flex flex-col gap-2">
-                {card.futures.map((future) => (
-                  <li className="w-full flex items-center">
+                {card.futures.map((future, i) => (
+                  <li key={i} className="w-full flex items-center">
                     <TiTick className="text-green" /> {future}
                   </li>
                 ))}
