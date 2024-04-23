@@ -1,16 +1,17 @@
 import clsx from "clsx";
-import React from "react";
+import Link from "next/link";
 
 function LoginButton({ className }: { className?: string }) {
   return (
-    <button
+    <Link
+      href="/signin"
       className={clsx(
-        "text-white bg-green py-2 px-3 rounded-md text-xl",
+        "text-white bg-green py-2 px-3 rounded-md text-xl !opacity-100",
         className
       )}
     >
       Giriş Yap
-    </button>
+    </Link>
   );
 }
 
