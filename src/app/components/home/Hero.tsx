@@ -31,7 +31,7 @@ function Hero() {
             <h1>
               <span className="text-green mb-5">Link</span>lerini Kısalt
             </h1>
-            <h2>Karmaşadan Kurtul</h2>
+            <span>Karmaşadan Kurtul</span>
           </div>
         </div>
 
