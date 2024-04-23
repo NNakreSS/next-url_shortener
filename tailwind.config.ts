@@ -21,6 +21,7 @@ const config: Config = {
         gray: "#303030",
         "off-wite": "#E3E3E3",
         background: "#F4F4F4",
+        "light-aqua": "#75DDDD",
       },
     },
   },
