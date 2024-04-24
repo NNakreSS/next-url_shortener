@@ -1,7 +1,7 @@
-.active {
+nav .active {
   opacity: 1;
 }
 
-a {
+nav a {
   opacity: 0.5;
 }
