@@ -1,4 +1,4 @@
-import TextInput from "@/app/components/TextInput";
+import TextInput from "@/app/components/general/TextInput";
 import Link from "next/link";
 // icons
 import { IoIosLock } from "react-icons/io";

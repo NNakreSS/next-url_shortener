@@ -1,7 +1,7 @@
 // styles
 import "@/app/styles/loginpage.css";
 // components
-import MainContainer from "@/app/components/MainContainer";
+import MainContainer from "@/app/components/general/MainContainer";
 import Footer from "@/app/components/footer";
 import Header from "@/app/components/header";
 

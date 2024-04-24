@@ -2,7 +2,7 @@
 import Logo from "./Logo";
 import Menu from "./Menu";
 import HamburgerMenu from "./HamburgerMenu";
-import LoginButton from "../LoginButton";
+import LoginButton from "../general/LoginButton";
 import clsx from "clsx";
 // fonts
 import { kanit } from "@/app/fonts";

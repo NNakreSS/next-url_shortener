@@ -3,7 +3,7 @@ import Header from "./components/header";
 import About from "./components/home/about/About";
 import Hero from "./components/home/Hero";
 import Info from "./components/home/info/Info";
-import MainContainer from "./components/MainContainer";
+import MainContainer from "./components/general/MainContainer";
 
 const Home = () => {
   return (
