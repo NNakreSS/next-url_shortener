@@ -3,16 +3,17 @@ import Header from "./components/header";
 import About from "./components/home/about/About";
 import Hero from "./components/home/Hero";
 import Info from "./components/home/info/Info";
+import MainContainer from "./components/MainContainer";
 
 const Home = () => {
   return (
-    <div className="container grid grid-cols-12 md:gap-x-5 m-auto">
+    <div className="container md:gap-x-5 m-auto">
       <Header />
-      <main className="col-span-full px-1 md:px-10 lg:px-40">
+      <MainContainer>
         <Hero />
         <About />
         <Info />
-      </main>
+      </MainContainer>
       <Footer />
     </div>
   );
