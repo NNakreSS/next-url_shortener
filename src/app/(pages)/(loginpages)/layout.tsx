@@ -5,11 +5,11 @@ import "@/app/styles/loginpage.css";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="container grid grid-cols-12 md:gap-x-5 m-auto">
+    <div className="container flex flex-col md:gap-x-5 m-auto min-h-screen">
       <Header />
-      <main className="col-span-full px-1 md:px-10 lg:px-40">
-        <div className="absolute top-0 right-0 w-full bg-light-aqua h-[40vh] mt-20 login-page-background"></div>
-        <div className="m-auto">{children}</div>
+      <main className="px-1 lg:px-40 grow relative h-full w-full">
+        <div className="absolute top-0 right-0 w-full bg-light-aqua h-56 login-page-background -z-50" />
+        {children}
       </main>
       <Footer />
     </div>
