@@ -1,7 +1,6 @@
 "use client";
 
 import { clsx } from "clsx";
-import { error } from "console";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
 interface InputProps {
@@ -11,6 +10,7 @@ interface InputProps {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
   disabled?: boolean;
+  type?: string;
 }
 
 function TextInput({
@@ -20,9 +20,9 @@ function TextInput({
   register,
   errors,
   disabled,
+  type,
   ...props
 }: InputProps) {
-  console.log(errors);
   return (
     <label
       className={clsx(
@@ -31,13 +31,18 @@ function TextInput({
       )}
     >
       <input
+        placeholder=""
+        type={type}
         disabled={disabled}
         {...register(id, { required })}
         {...props}
         className="w-full h-full mt-5 bg-transparent rounded-md p-2 border-none outline-none transition duration-200 font-light text-lg"
-        type="text"
       />
-      <span className="h-full content-center absolute left-0 top-0 px-2 text-lg font-extralight transition duration-200 input-label">
+      <span
+        className={clsx(
+          "h-full content-center absolute left-0 top-0 px-2 text-lg font-extralight transition duration-200 input-label valid"
+        )}
+      >
         {placeholder}
       </span>
     </label>
