@@ -8,6 +8,7 @@
   }
 }
 
-input[type="text"]:focus ~ .input-label {
+input:focus + .input-label,
+input:not(:placeholder-shown) + .input-label {
   @apply -translate-y-5 -translate-x-2  scale-75;
 }
