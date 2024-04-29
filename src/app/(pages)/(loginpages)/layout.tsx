@@ -11,7 +11,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Header />
       <MainContainer>
         <div className="absolute top-0 right-0 w-full bg-light-aqua h-56 login-page-background -z-50" />
-        {children}
+        <div className="bg-Blue flex flex-col gap-5 mx-auto px-5 py-10 rounded-md w-full md:w-4/5 lg:w-2/5 my-5">
+          {children}
+        </div>
       </MainContainer>
       <Footer />
     </div>
