@@ -23,6 +23,7 @@ function LoginClient() {
       <form action="" method="post" className="flex flex-col gap-2">
         <TextInput
           id="e-mail"
+          type="email"
           register={register}
           errors={errors}
           placeholder="E-posta"
@@ -30,6 +31,7 @@ function LoginClient() {
         />
         <TextInput
           id="password"
+          type="password"
           register={register}
           errors={errors}
           placeholder="Şifre"
