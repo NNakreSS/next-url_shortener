@@ -1,7 +1,5 @@
 import TextInput from "@/app/components/general/TextInput";
 import Link from "next/link";
-// icons
-import { IoIosLock } from "react-icons/io";
 
 export default function SignUp() {
   return (
