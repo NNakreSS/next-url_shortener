@@ -24,7 +24,8 @@ function RegisterClient() {
           register={register}
           errors={errors}
           required
-          placeholder="Kullanıcı Adı "
+          type="text"
+          placeholder="Kullanıcı Adı"
         />
         <TextInput
           id="e-mail"
