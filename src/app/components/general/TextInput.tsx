@@ -1,10 +1,11 @@
-function TextInput({
-  placeholder,
-  ...props
-}: {
+"use client";
+
+interface InputProps {
   placeholder: string;
   props?: any;
-}) {
+}
+
+function TextInput({ placeholder, ...props }: InputProps) {
   return (
     <label className="w-full flex flex-col bg-white relative rounded-md">
       <input
