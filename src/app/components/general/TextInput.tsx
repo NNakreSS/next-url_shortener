@@ -1,11 +1,21 @@
 "use client";
 
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+
 interface InputProps {
   placeholder: string;
-  props?: any;
+  required?: boolean;
+  register: UseFormRegister<FieldValues>;
+  errors: FieldErrors;
 }
 
-function TextInput({ placeholder, ...props }: InputProps) {
+function TextInput({
+  placeholder,
+  required,
+  register,
+  errors,
+  ...props
+}: InputProps) {
   return (
     <label className="w-full flex flex-col bg-white relative rounded-md">
       <input
