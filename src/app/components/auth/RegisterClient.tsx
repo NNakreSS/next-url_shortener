@@ -50,6 +50,7 @@ function RegisterClient() {
         <button
           type="submit"
           className="bg-green text-white rounded-md p-2 text-2xl font-medium mt-2"
+          onClick={handleSubmit(onSubmit)}
         >
           Kayıt Ol
         </button>
