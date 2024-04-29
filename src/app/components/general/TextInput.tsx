@@ -7,6 +7,7 @@ interface InputProps {
   required?: boolean;
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
+  disabled?: boolean;
 }
 
 function TextInput({
@@ -14,11 +15,13 @@ function TextInput({
   required,
   register,
   errors,
+  disabled,
   ...props
 }: InputProps) {
   return (
     <label className="w-full flex flex-col bg-white relative rounded-md">
       <input
+        disabled={disabled}
         {...props}
         className="w-full h-full mt-5 bg-transparent rounded-md p-2 border-none outline-none transition duration-200 font-light text-lg"
         type="text"
