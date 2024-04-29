@@ -28,6 +28,7 @@ function RegisterClient() {
           placeholder="Kullanıcı Adı"
         />
         <TextInput
+          type="email"
           id="e-mail"
           register={register}
           errors={errors}
@@ -35,6 +36,7 @@ function RegisterClient() {
           placeholder="E-posta"
         />
         <TextInput
+          type="password"
           id="password"
           register={register}
           errors={errors}
@@ -42,6 +44,7 @@ function RegisterClient() {
           placeholder="Şifre"
         />
         <TextInput
+          type="password"
           id="passwordagain"
           register={register}
           errors={errors}
