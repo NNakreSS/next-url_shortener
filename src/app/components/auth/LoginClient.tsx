@@ -6,8 +6,12 @@ import TextInput from "../general/TextInput";
 // icons
 import { IoIosLock } from "react-icons/io";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 function LoginClient() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -15,7 +19,22 @@ function LoginClient() {
     formState: { errors },
   } = useForm<FieldValues>();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    signIn("credentials", {
+      ...data,
+      redirect: false,
+    }).then((cb) => {
+      if (cb?.ok) {
+        router.push("/dashboard");
+        router.refresh();
+        console.log("Giriş Başarılı");
+      }
+
+      if (cb?.error) {
+        console.error(cb.error);
+      }
+    });
+  };
 
   return (
     <>

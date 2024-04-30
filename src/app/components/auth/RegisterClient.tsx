@@ -4,8 +4,13 @@ import Link from "next/link";
 // components
 import TextInput from "../general/TextInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import axios from "axios";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 function RegisterClient() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -13,12 +18,31 @@ function RegisterClient() {
     formState: { errors },
   } = useForm<FieldValues>();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    axios.post("/api/register", data).then((response) => {
+      console.log(response);
+      signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+      }).then((cb) => {
+        if (cb?.ok) {
+          router.push("/dashboard");
+          router.refresh();
+          console.log("Giriş Başarılı");
+        }
+
+        if (cb?.error) {
+          console.error(cb?.error);
+        }
+      });
+    });
+  };
 
   return (
     <>
       <h1 className="text-white text-4xl font-medium">Hesap Oluştur</h1>
-      <form action="" method="post" className="flex flex-col gap-2">
+      <form method="post" className="flex flex-col gap-2">
         <TextInput
           id="userName"
           register={register}
@@ -29,7 +53,7 @@ function RegisterClient() {
         />
         <TextInput
           type="email"
-          id="e-mail"
+          id="email"
           register={register}
           errors={errors}
           required
