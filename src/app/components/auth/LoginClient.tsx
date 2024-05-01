@@ -75,13 +75,13 @@ function LoginClient() {
       <div className="flex flex-col gap-2">
         <h2 className="text-white text-2xl font-medium">Üye değil misin ?</h2>
         <Link
-          href="/signup"
+          href="/auth/signup"
           className="bg-white w-full rounded-md p-2 text-lg font-medium text-center"
         >
           Hesap Oluştur
         </Link>
       </div>
-    </>
+    </> 
   );
 }
 

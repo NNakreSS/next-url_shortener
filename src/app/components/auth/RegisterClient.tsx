@@ -87,7 +87,7 @@ function RegisterClient() {
       <div className="flex flex-col gap-2">
         <h2 className="text-white text-2xl font-medium">Zaten üye misin ?</h2>
         <Link
-          href="/signin"
+          href="/auth/signin"
           className="bg-white w-full rounded-md p-2 text-lg font-medium text-center"
         >
           Giriş Yap
