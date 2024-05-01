@@ -41,7 +41,7 @@ function LoginClient() {
       <h1 className="text-white text-4xl font-medium">Giriş Yap</h1>
       <form action="" method="post" className="flex flex-col gap-2">
         <TextInput
-          id="e-mail"
+          id="email"
           type="email"
           register={register}
           errors={errors}
