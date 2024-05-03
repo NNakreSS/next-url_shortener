@@ -30,7 +30,7 @@ const withAuth: MiddlewareFactory = (next: NextMiddleware) => {
 
     if (pathname == PATH_SIGNIN || pathname == PATH_SIGNUP) {
       if (currentUser) {
-        NextResponse.redirect(new URL(PATH_DEFAULT, req.url));
+        return NextResponse.redirect(new URL(PATH_DEFAULT, req.url));
       }
     }
 
