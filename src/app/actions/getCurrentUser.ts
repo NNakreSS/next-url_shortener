@@ -9,7 +9,6 @@ export const getSession = async () => {
 export const getCurrentUser = async () => {
   try {
     const session = await getSession();
-    console.log(session?.user);
     if (!session?.user?.email) {
       return null;
     }
@@ -31,6 +30,7 @@ export const getCurrentUser = async () => {
       emailVerified: currentUser?.emailVerified?.toISOString() || null,
     };
   } catch (err: any) {
+    console.error(err);
     return null;
   }
 };
