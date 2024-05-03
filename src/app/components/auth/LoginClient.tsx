@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 
 function LoginClient() {
   const router = useRouter();
-
   const {
     register,
     handleSubmit,
@@ -81,7 +80,7 @@ function LoginClient() {
           Hesap Oluştur
         </Link>
       </div>
-    </> 
+    </>
   );
 }
 
