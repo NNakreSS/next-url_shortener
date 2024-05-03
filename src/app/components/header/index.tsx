@@ -6,8 +6,10 @@ import LoginButton from "../general/LoginButton";
 import clsx from "clsx";
 // fonts
 import { kanit } from "@/app/fonts";
+import { getCurrentUser } from "@/app/actions/getCurrentUser";
 
-const Header = () => {
+const Header = async () => {
+  const currentUser = await getCurrentUser();
   return (
     <header
       className={clsx(
@@ -17,7 +19,7 @@ const Header = () => {
     >
       <Logo />
       <Menu />
-      <LoginButton className="hidden md:block" />
+      <LoginButton currentUser={currentUser} className="hidden md:block" />
       <HamburgerMenu />
     </header>
   );
