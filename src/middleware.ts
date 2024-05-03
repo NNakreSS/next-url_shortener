@@ -21,7 +21,6 @@ async function withAuth(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
   const { requireLogin, allowedRoles } = useAuth(pathname);
 
-  console.log("PATHNAME : " + pathname);
   if (pathname == PATH_SIGNIN || pathname == PATH_SIGNUP) {
     if (currentUser) {
       return NextResponse.redirect(new URL(PATH_DEFAULT, req.url));
