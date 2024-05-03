@@ -6,6 +6,10 @@ import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 // ----------------------------------------------------
 import bcrypt from "bcryptjs";
+// types
+import type { JWT } from "next-auth/jwt";
+import type { User } from "@prisma/client";
+import type { Session } from "inspector";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -42,10 +46,21 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Geçersiz şifre...");
         }
 
-        return user;
+        return { ...user, role: user.role };
       },
     }),
   ],
+
+  callbacks: {
+    async jwt({ token, user }: { token: JWT; user: User | any }) {
+      if (user) token.role = user.role;
+      return token;
+    },
+    async session({ session, token }: { session: Session | any; token: JWT }) {
+      if (session?.user) session.user.role = token.role;
+      return session;
+    },
+  },
 
   pages: {
     signIn: "/auth/signin",
