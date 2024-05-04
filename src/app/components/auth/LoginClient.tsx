@@ -8,9 +8,13 @@ import { IoIosLock } from "react-icons/io";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Button from "../general/Button";
 
 function LoginClient() {
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
@@ -19,6 +23,7 @@ function LoginClient() {
   } = useForm<FieldValues>();
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    setLoading(true);
     signIn("credentials", {
       ...data,
       redirect: false,
@@ -26,12 +31,13 @@ function LoginClient() {
       if (cb?.ok) {
         router.push("/dashboard");
         router.refresh();
-        console.log("Giriş Başarılı");
       }
 
       if (cb?.error) {
         console.error(cb.error);
       }
+
+      setLoading(false);
     });
   };
 
@@ -55,13 +61,13 @@ function LoginClient() {
           placeholder="Şifre"
           required
         />
-        <button
+        <Button
+          loading={loading}
           type="submit"
-          className="bg-green text-white rounded-md p-2 text-2xl font-medium mt-2"
           onClick={handleSubmit(onSubmit)}
-        >
-          Giriş Yap
-        </button>
+          label="Giriş Yap"
+          className="bg-green text-white rounded-md p-2 text-2xl font-medium mt-2 flex items-center justify-center disabled:bg-green/70"
+        />
       </form>
 
       <button className="flex items-center gap-2 w-auto my-5">
