@@ -4,7 +4,7 @@ import Link from "next/link";
 // icons
 import { AiOutlineUser } from "react-icons/ai";
 // types
-import currentUser from "@/types/CurrentUser";
+import currentUser from "@/types/currentUserType";
 
 interface UserProps {
   className?: string;
