@@ -1,4 +1,4 @@
-import MiddlewareFactory from "@/types/MiddlewareFactory";
+import MiddlewareFactory from "@/types/MiddlewareFactoryType";
 import { NextMiddleware, NextResponse } from "next/server";
 
 export function chain(
