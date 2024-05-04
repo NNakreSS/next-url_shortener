@@ -22,6 +22,7 @@ const config: Config = {
         "off-wite": "#E3E3E3",
         background: "#F4F4F4",
         "light-aqua": "#75DDDD",
+        Pink: "#FF6363",
       },
     },
   },
