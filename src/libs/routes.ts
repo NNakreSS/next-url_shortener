@@ -26,3 +26,6 @@ export const PATH_SIGNUP = "/auth/signin";
 export const PATH_DASHBOARD = "/dashboard";
 export const PATH_ADMIN = "/admin";
 export const PATH_UNAUTH = "/unauthorized";
+
+// dashboard paths
+export const DASHBOARD_API = "/dashboard/api";
