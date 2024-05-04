@@ -6,7 +6,12 @@ import {
 } from "next/server";
 import { getToken } from "next-auth/jwt";
 import type { Role } from "@prisma/client";
-import { PATH_DEFAULT, PATH_SIGNIN, PATH_SIGNUP } from "@/libs/routes";
+import {
+  PATH_DEFAULT,
+  PATH_SIGNIN,
+  PATH_SIGNUP,
+  PATH_UNAUTH,
+} from "@/libs/routes";
 // custom hooks
 import { useAuth } from "@/hooks/useAuth";
 import MiddlewareFactory from "@/types/MiddlewareFactory";
@@ -39,7 +44,7 @@ const withAuth: MiddlewareFactory = (next: NextMiddleware) => {
         return NextResponse.redirect(new URL(PATH_SIGNIN, req.url));
       } else {
         if (allowedRoles && !allowedRoles.includes(currentUser?.role)) {
-          return NextResponse.redirect(new URL(PATH_SIGNIN, req.url));
+          return NextResponse.redirect(new URL(PATH_UNAUTH, req.url));
         }
       }
     }
