@@ -23,7 +23,7 @@ function UnAuthorize() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center w-screen h-screen bg-zinc-200">
+    <div className="flex items-center justify-center w-screen h-screen">
       <span className="text-2xl text-red-500">
         Bu sayfaya erişim izniniz yok, {time} saniye içinde ana sayfaya
         yönlendirileceksiniz...
