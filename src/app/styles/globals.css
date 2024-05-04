@@ -12,3 +12,14 @@ input:focus + .input-label,
 input:not(:placeholder-shown) + .input-label {
   @apply -translate-y-5 -translate-x-2  scale-75;
 }
+
+/* scroll bar  */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Scroll bar grip (kaydırma çubuğu gövdesi) */
+::-webkit-scrollbar-thumb {
+  @apply bg-off-wite rounded-lg;
+}
+/* scroll bar end */
