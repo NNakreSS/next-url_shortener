@@ -14,7 +14,7 @@ import {
 } from "@/libs/routes";
 // custom hooks
 import { useAuth } from "@/hooks/useAuth";
-import MiddlewareFactory from "@/types/MiddlewareFactory";
+import MiddlewareFactory from "@/types/MiddlewareFactoryType";
 
 interface currentUserType {
   name: string;
