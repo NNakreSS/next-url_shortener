@@ -8,7 +8,9 @@ export default function Dashboard() {
       <TotalCards />
       <div className="grid grid-cols-3 gap-5 mb-5">
         <LinkManagment className="col-span-2" />
-        <LastClickCard />
+        <div>
+          <LastClickCard />
+        </div>
       </div>
     </>
   );
