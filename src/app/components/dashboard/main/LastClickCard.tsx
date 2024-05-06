@@ -1,3 +1,5 @@
+"use client";
+
 // icons
 import { GrDocumentUser } from "react-icons/gr";
 import { LiaExternalLinkAltSolid } from "react-icons/lia";

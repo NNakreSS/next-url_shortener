@@ -1,3 +1,5 @@
+"use client";
+
 import TotalCardProps from "@/types/TotalCardType";
 import TotalCard from "./TotalCard";
 // icons
