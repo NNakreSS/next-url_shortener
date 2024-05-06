@@ -8,7 +8,7 @@ interface LastViewCardProps {
 
 function LastViewCard({ Icon, label, children, ...props }: LastViewCardProps) {
   return (
-    <div
+    <section
       {...props}
       className="bg-white shadow-md h-auto rounded-lg overflow-hidden"
     >
@@ -17,7 +17,7 @@ function LastViewCard({ Icon, label, children, ...props }: LastViewCardProps) {
         <span className="text-2xl">{label}</span>
       </div>
       <div>{children}</div>
-    </div>
+    </section>
   );
 }
 
