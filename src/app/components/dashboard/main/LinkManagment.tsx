@@ -9,10 +9,10 @@ interface LinkManagmentProps {
 
 function LinkManagment({ className }: LinkManagmentProps) {
   return (
-    <div className={clsx(className, "flex flex-col gap-5")}>
+    <section className={clsx(className, "flex flex-col gap-5")}>
       <Shortener />
       <LinksPreview />
-    </div>
+    </section>
   );
 }
 
