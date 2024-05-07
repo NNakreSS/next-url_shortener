@@ -1,12 +1,27 @@
+import { getCurrentUser } from "@/app/actions/getCurrentUser";
 import Footer from "@/app/components/footer";
-import Header from "@/app/components/header";
-import React from "react";
+import LoginButton from "@/app/components/general/LoginButton";
+import MainContainer from "@/app/components/general/MainContainer";
+import { Header, Logo, Menu } from "@/app/components/header";
+import { PATH_CONTACT, PATH_DEFAULT } from "@/libs/routes";
+import type Navigation from "@/types/NavigationType";
 
-const Contact = () => {
+const navigations: Navigation[] = [
+  { name: "Anasayfa", path: PATH_DEFAULT },
+  { name: "İletişim", path: PATH_CONTACT },
+];
+
+const Contact = async () => {
+  const currentUser = await getCurrentUser();
+
   return (
-    <div className="container grid grid-cols-12 md:gap-x-5 m-auto">
-      <Header />
-      <main className="col-span-full px-1 md:px-10 lg:px-40">Contact</main>
+    <div className="container md:gap-x-5 m-auto">
+      <Header>
+        <Logo />
+        <Menu navigations={navigations} />
+        <LoginButton currentUser={currentUser} />
+      </Header>
+      <MainContainer>İletişim</MainContainer>
       <Footer />
     </div>
   );
