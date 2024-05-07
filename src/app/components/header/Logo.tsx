@@ -7,7 +7,7 @@ const Logo = () => {
   return (
     <div
       onClick={() => router.push("/")}
-      className="text-4xl text-dark-green font-extrabold h-full flex items-center justify-center cursor-pointer"
+      className="text-4xl text-dark-green font-extrabold h-full  items-center justify-center cursor-pointer hidden lg:flex"
     >
       Logo
     </div>
