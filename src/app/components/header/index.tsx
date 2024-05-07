@@ -1,15 +1,11 @@
 // components
-import Logo from "./Logo";
-import Menu from "./Menu";
-import HamburgerMenu from "./HamburgerMenu";
-import LoginButton from "../general/LoginButton";
 import clsx from "clsx";
 // fonts
 import { kanit } from "@/app/fonts";
-import { getCurrentUser } from "@/app/actions/getCurrentUser";
+import Logo from "./Logo";
+import Menu from "./Menu";
 
-const Header = async () => {
-  const currentUser = await getCurrentUser();
+const Header = async ({ children }: { children: React.ReactNode }) => {
   return (
     <header
       className={clsx(
@@ -17,12 +13,9 @@ const Header = async () => {
         kanit.className
       )}
     >
-      <Logo />
-      <Menu />
-      <LoginButton currentUser={currentUser} className="hidden md:block" />
-      <HamburgerMenu />
+      {children}
     </header>
   );
 };
 
-export default Header;
+export { Header, Logo, Menu };
