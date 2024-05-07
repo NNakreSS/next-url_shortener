@@ -21,6 +21,7 @@ export const routes: Record<string, Route> = {
 
 // core paths
 export const PATH_DEFAULT = "/";
+export const PATH_CONTACT = "/contact";
 export const PATH_SIGNIN = "/auth/signin";
 export const PATH_SIGNUP = "/auth/signin";
 export const PATH_DASHBOARD = "/dashboard";
