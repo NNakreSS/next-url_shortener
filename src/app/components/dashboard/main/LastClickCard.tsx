@@ -5,8 +5,8 @@ import { GrDocumentUser } from "react-icons/gr";
 import { LiaExternalLinkAltSolid } from "react-icons/lia";
 import { IoTimeOutline } from "react-icons/io5";
 // components
-import Table from "../LastViewTable";
-import LastViewCard from "../LastViewCard";
+import Table from "../../general/LastViewTable";
+import LastViewCard from "../../general/LastViewCard";
 
 const lastClicks = [
   { tag: "discord", date: "14:58:13", device: "mobil" },
