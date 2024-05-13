@@ -1,7 +1,7 @@
 "use client";
 
 import TotalCardProps from "@/types/TotalCardType";
-import TotalCard from "./TotalCard";
+import TotalCard from "../../general/TotalCard";
 // icons
 import { MdAdsClick } from "react-icons/md";
 import { GoProjectSymlink } from "react-icons/go";
