@@ -38,7 +38,7 @@ const shortLinkData = [
 
 function LinksPreview() {
   return (
-    <div className="bg-white p-3 rounded-lg shadow-md space-y-3 max-h-screen overflow-auto">
+    <div className="bg-white p-3 rounded-lg shadow-cover space-y-3 max-h-screen overflow-auto">
       {shortLinkData.map((link, i) => (
         <LinkCard key={i} link={link} />
       ))}

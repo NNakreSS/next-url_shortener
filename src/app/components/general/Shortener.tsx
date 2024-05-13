@@ -4,7 +4,7 @@ import { LuLink } from "react-icons/lu";
 
 function Shortener() {
   return (
-    <div className="bg-white shadow-md flex justify-between items-center gap-3 p-2 rounded-lg h-14 box-border">
+    <div className="bg-white shadow-cover flex justify-between items-center gap-3 p-2 rounded-lg h-14 box-border">
       <div className="flex gap-3 border border-light-aqua w-full h-full p-2 justify-start items-center rounded-lg box-border">
         <LuLink className="text-light-aqua" size={20} />
         <input
