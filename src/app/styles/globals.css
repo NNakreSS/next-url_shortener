@@ -23,3 +23,39 @@ input:not(:placeholder-shown) + .input-label {
   @apply bg-off-wite rounded-lg;
 }
 /* scroll bar end */
+
+/* table css  */
+
+body {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+}
+
+table {
+  @apply border-separate w-full border-none border-spacing-x-0 border-spacing-y-2;
+}
+
+table th {
+  @apply bg-off-wite p-2 text-2xl font-medium;
+}
+
+table td {
+  @apply text-center bg-background p-2 text-xl font-normal transition duration-300;
+}
+
+table tr {
+  @apply hover:bg-green cursor-pointer;
+}
+
+table tr:hover > td {
+  @apply bg-green text-white;
+}
+
+td:first-child,
+th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+td:last-child,
+th:last-child {
+  border-radius: 0 10px 10px 0;
+}
