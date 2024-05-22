@@ -3,6 +3,7 @@
 import Pagination from "@/app/components/general/Pagination";
 import SearchInput from "@/app/components/general/SearchInput";
 import { useState } from "react";
+import "@/app/styles/table.css";
 
 const users = [
   {
