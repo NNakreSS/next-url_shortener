@@ -1,24 +1,98 @@
 "use client";
+import clsx from "clsx";
+import React, { useState } from "react";
 
-import { useState } from "react";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-function Pagination() {
-  const data = new Array(20).map((_, i: number) => i + 1);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const limit = 5;
+interface PaginationProps {
+  className?: string;
+  totalPages: number;
+  currentPage: number;
+  onPageChange: (page: number) => void;
+}
 
-  const start = (currentPage - 1) * limit; // 0 , 5 ,10 , 15
-  const end = start + limit; // 5 , 10 , 15 , 20
+const Pagination = ({
+  currentPage,
+  onPageChange,
+  totalPages,
+  className,
+}: PaginationProps) => {
+  const getPageNumbers = () => {
+    const pages: [string | number] = [1];
+    const maxPageNumbersToShow = 7;
+    const halfMaxPagesToShow = Math.floor(maxPageNumbersToShow / 2);
 
-  const entries = data.slice(start, end);
+    // Aktif sayfa ortalarda olduğunda
+    if (
+      currentPage > halfMaxPagesToShow &&
+      currentPage < totalPages - halfMaxPagesToShow
+    ) {
+      pages.push("...");
+      for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+        pages.push(i);
+      }
+      pages.push("...");
+    }
+    // Aktif sayfa başlangıç sayfalarda olduğunda
+    else if (currentPage <= halfMaxPagesToShow) {
+      for (let i = 2; i <= maxPageNumbersToShow - 2; i++) {
+        pages.push(i);
+      }
+      pages.push("...");
+    }
+    // Aktif sayfa son sayfalarda olduğunda
+    else {
+      pages.push("...");
+      for (
+        let i = totalPages - (maxPageNumbersToShow - 3);
+        i < totalPages;
+        i++
+      ) {
+        pages.push(i);
+      }
+    }
+
+    // Bitiş sayfasını ekle
+    if (totalPages > 1) {
+      pages.push(totalPages);
+    }
+
+    return pages;
+  };
 
   return (
-    <div className="flex flex-col gap-2 items-center">
-      {entries.map((entry) => (
-        <p key={entry}>{entry}</p>
+    <div
+      className={clsx(
+        "flex gap-2 items-center justify-evenly bg-white shadow-cover py-1 px-4 rounded-md h-10",
+        className
+      )}
+    >
+      <button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        <FaArrowLeft />
+      </button>
+      {getPageNumbers().map((page, index) => (
+        <button
+          key={index}
+          onClick={() => typeof page === "number" && onPageChange(page)}
+          className={clsx("w-7 h-7 rounded-md", {
+            "bg-green text-white": page === currentPage,
+          })}
+          disabled={page === "..."}
+        >
+          {page}
+        </button>
       ))}
+      <button
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
+        <FaArrowRight />
+      </button>
     </div>
   );
-}
+};
 
 export default Pagination;
