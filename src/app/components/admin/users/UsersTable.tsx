@@ -2,7 +2,7 @@
 
 import Pagination from "@/app/components/general/Pagination";
 import SearchInput from "@/app/components/general/SearchInput";
-import Table from "../../general/Table";
+import { useState } from "react";
 
 const users = [
   {
@@ -68,34 +68,40 @@ const users = [
 ];
 
 function UsersTable() {
+  const [currentPage, setPage] = useState(1);
+
   return (
     <div className="my-5 space-y-5">
-      <div className="flex items-center justify-between">
-        <SearchInput />
-        <Pagination />
+      <div className="flex lg:flex-row flex-col items-center justify-between gap-2">
+        <SearchInput className="w-full lg:w-auto" />
+        <Pagination
+          className="w-full lg:w-auto"
+          currentPage={currentPage}
+          onPageChange={setPage}
+          totalPages={30}
+        />
       </div>
-      <div className="bg-white rounded-lg shadow-cover overflow-hidden">
-        <Table>
-          <Table.Head>
-            <Table.Row>
-              <Table.Column>Kullanıcı Adı</Table.Column>
-              <Table.Column>E-Posta</Table.Column>
-              <Table.Column>Toplam Link</Table.Column>
-              <Table.Column>Tarih</Table.Column>
-            </Table.Row>
-          </Table.Head>
-
-          <Table.Body>
+      <div className="overflow-auto shadow-cover rounded-md p-2 bg-white">
+        <table>
+          <thead>
+            <tr>
+              <th>Kullanıcı Adı</th>
+              <th>E-mail</th>
+              <th>Toplam Link</th>
+              <th>Tarih</th>
+            </tr>
+          </thead>
+          <tbody>
             {users.map((user, i) => (
-              <Table.Row key={i}>
-                <Table.Cell>{user.name}</Table.Cell>
-                <Table.Cell>{user.email}</Table.Cell>
-                <Table.Cell>{user.linkCount}</Table.Cell>
-                <Table.Cell>{user.date}</Table.Cell>
-              </Table.Row>
+              <tr key={i}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.linkCount}</td>
+                <td>{user.date}</td>
+              </tr>
             ))}
-          </Table.Body>
-        </Table>
+          </tbody>
+        </table>
       </div>
     </div>
   );
