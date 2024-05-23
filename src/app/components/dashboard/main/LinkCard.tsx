@@ -9,7 +9,7 @@ function LinkCard({ link }: { link: LinkType }) {
       <div className="flex items-center justify-start gap-3 h-10 border-b-2 py-6">
         <div className="flex items-center justify-start gap-2">
           <LuLink size={24} />
-          <span className="font-light text-2xl">{link.tag}</span>
+          <span className="font-light text-2xl">{link.shortUrl}</span>
         </div>
         <div className="rounded-md bg-gray/80 w-[3px] h-3/4" />
         <div className="text-2xl font-light text-gray/80">
@@ -28,7 +28,7 @@ function LinkCard({ link }: { link: LinkType }) {
         <input
           className="outline-none border-none p-2 rounded-lg w-full text-dark-green font-light text-lg"
           type="text"
-          value={link.tag}
+          value={link.shortUrl}
         />
       </div>
 
@@ -36,8 +36,7 @@ function LinkCard({ link }: { link: LinkType }) {
       <div className="flex gap-2 items-center">
         <span className="font-normal text-xl">Kısaltma Tarihi :</span>
         <div className="space-x-3 text-lg font-light text-black/80">
-          <span>{link.shortenedDate}</span>
-          <span>{link.shortenedTime}</span>
+          <span>{link.createdAt.toISOString()}</span>
         </div>
       </div>
 
