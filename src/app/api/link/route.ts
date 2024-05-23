@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const currentUser = await getCurrentUser();
-  if (!currentUser || currentUser?.role !== "ADMIN") {
+  if (!currentUser) {
     return NextResponse.error();
   }
 
@@ -37,4 +37,14 @@ export async function POST(req: Request) {
     console.error("ERROR: ", error);
     return NextResponse.json({ error: "An error occurred" }, { status: 500 });
   }
+}
+
+export async function GET() {
+  const currentUser = await getCurrentUser();
+  if (!currentUser || currentUser?.role !== "ADMIN") {
+    return NextResponse.error();
+  }
+
+  const links = await prisma.link.findMany();
+  return NextResponse.json(links);
 }
