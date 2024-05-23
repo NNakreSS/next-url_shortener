@@ -15,7 +15,7 @@ const navigations: Navigation[] = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="container flex flex-col md:gap-x-5 m-auto min-h-screen">
+    <div className="2xl:container flex flex-col md:gap-x-5 m-auto min-h-screen">
       <Header>
         <Logo />
         <Menu navigations={navigations} />
