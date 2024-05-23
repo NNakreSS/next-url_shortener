@@ -7,7 +7,7 @@ import MainContainer from "./components/general/MainContainer";
 import { PATH_CONTACT, PATH_DEFAULT } from "@/libs/routes";
 import Navigation from "@/types/NavigationType";
 import LoginButton from "./components/general/LoginButton";
-import { getCurrentUser } from "./actions/getCurrentUser";
+import { getCurrentUser } from "../libs/actions/getCurrentUser";
 
 const navigations: Navigation[] = [
   { name: "Anasayfa", path: PATH_DEFAULT },

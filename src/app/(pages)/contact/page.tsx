@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/app/actions/getCurrentUser";
+import { getCurrentUser } from "@/libs/actions/getCurrentUser";
 import Footer from "@/app/components/footer";
 import LoginButton from "@/app/components/general/LoginButton";
 import MainContainer from "@/app/components/general/MainContainer";

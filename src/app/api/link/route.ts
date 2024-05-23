@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/app/actions/getCurrentUser";
+import { getCurrentUser } from "@/libs/actions/getCurrentUser";
 import prisma from "@/libs/prismadb";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { NextResponse } from "next/server";

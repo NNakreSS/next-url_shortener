@@ -1,6 +1,6 @@
-import { getCurrentUser } from "@/app/actions/getCurrentUser";
-import getUserClicks from "@/app/actions/getUserClicks";
-import getUserLinks from "@/app/actions/getUserLinks";
+import { getCurrentUser } from "@/libs/actions/getCurrentUser";
+import getUserClicks from "@/libs/actions/getUserLinkClicks";
+import getUserLinks from "@/libs/actions/getUserLinks";
 import LastClickCard from "@/app/components/dashboard/main/LastClickCard";
 import LinkManagment from "@/app/components/dashboard/main/LinkManagment";
 import TotalCards from "@/app/components/dashboard/main/TotalCards";

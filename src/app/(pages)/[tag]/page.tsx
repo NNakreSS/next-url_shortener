@@ -1,4 +1,4 @@
-import getLinkFromShortUrl from "@/app/actions/getLongUrl";
+import getLinkFromShortUrl from "@/libs/actions/getLongUrl";
 import { PATH_DEFAULT } from "@/libs/routes";
 import { redirect } from "next/navigation";
 async function page({ params: { tag } }: { params: { tag: string } }) {

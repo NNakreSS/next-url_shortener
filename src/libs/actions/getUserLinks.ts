@@ -9,6 +9,9 @@ export default async function getUserLinks(id: string) {
       where: {
         userId: id,
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
 
     return links;
