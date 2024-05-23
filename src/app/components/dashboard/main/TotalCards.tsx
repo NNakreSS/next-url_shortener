@@ -7,18 +7,18 @@ import { MdAdsClick } from "react-icons/md";
 import { GoProjectSymlink } from "react-icons/go";
 import { LuLink } from "react-icons/lu";
 
-const totals: TotalCardProps[] = [
-  {
-    label: "Günlük Tıklamalar",
-    count: 10,
-    Icon: MdAdsClick,
-    info: "Son 5 gün",
-  },
-  { label: "Toplam Ziyaret", count: 200, Icon: GoProjectSymlink },
-  { label: "Toplam Linkler", count: 38, Icon: LuLink },
-];
+function TotalCards({}) {
+  const totals: TotalCardProps[] = [
+    {
+      label: "Günlük Tıklamalar",
+      count: 10,
+      Icon: MdAdsClick,
+      info: "Son 5 gün",
+    },
+    { label: "Toplam Ziyaret", count: 200, Icon: GoProjectSymlink },
+    { label: "Toplam Linkler", count: 8, Icon: LuLink },
+  ];
 
-function TotalCards() {
   return (
     <section className="flex flex-col lg:flex-row gap-5 py-5">
       {totals.map((total, index) => (
