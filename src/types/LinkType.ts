@@ -1,10 +1,12 @@
+
 interface LinkType {
-  tag: string;
-  clickCount: number;
-  originalUrl: string;
+  id: string;
   shortUrl: string;
-  shortenedDate: string;
-  shortenedTime: string;
+  originalUrl: string;
+  createdAt: Date;
+  updatedAt: Date;
+  userId: string;
+  clickCount: number;
 }
 
 export default LinkType;
