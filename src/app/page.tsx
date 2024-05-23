@@ -18,7 +18,7 @@ const Home = async () => {
   const currentUser = await getCurrentUser();
 
   return (
-    <div className="container md:gap-x-5 m-auto">
+    <div className="2xl:container md:gap-x-5 m-auto">
       <Header>
         <Logo />
         <Menu navigations={navigations} />
