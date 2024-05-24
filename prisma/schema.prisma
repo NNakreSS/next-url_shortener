@@ -37,9 +37,14 @@ model Click {
     linkId    String   @db.ObjectId
     userId    String   @db.ObjectId
     timestamp DateTime @default(now())
-    device    String
+    device    Device
     link      Link     @relation(fields: [linkId], references: [id])
     user      User     @relation(fields: [userId], references: [id])
+}
+
+enum Device {
+    mobile
+    desktop
 }
 
 enum Role {
