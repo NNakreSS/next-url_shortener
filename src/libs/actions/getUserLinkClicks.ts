@@ -5,13 +5,19 @@ import prisma from "@/libs/prismadb";
  */
 export default async function getUserLinkClicks(id: string) {
   try {
-    const links = await prisma.click.findMany({
+    const Clicks = await prisma.click.findMany({
       where: {
         userId: id,
       },
+      orderBy: {
+        timestamp: "desc",
+      },
+      include: {
+        link: true,
+      },
     });
 
-    return links;
+    return Clicks;
   } catch (error) {
     console.error(error);
     return null;
