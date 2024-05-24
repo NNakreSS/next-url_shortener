@@ -6,17 +6,31 @@ import TotalCard from "../../general/TotalCard";
 import { MdAdsClick } from "react-icons/md";
 import { GoProjectSymlink } from "react-icons/go";
 import { LuLink } from "react-icons/lu";
+import { Click, Link } from "@prisma/client";
+import filterTimeStamp from "@/helpers/filterTimeStamp";
 
-function TotalCards({}) {
+function TotalCards({
+  Clicks,
+  Links,
+}: {
+  Clicks: Click[] | null;
+  Links: Link[] | null;
+}) {
+  const lastClicks = filterTimeStamp(Clicks, 5, "timestamp");
+
   const totals: TotalCardProps[] = [
     {
       label: "Günlük Tıklamalar",
-      count: 10,
+      count: lastClicks.length,
       Icon: MdAdsClick,
       info: "Son 5 gün",
     },
-    { label: "Toplam Ziyaret", count: 200, Icon: GoProjectSymlink },
-    { label: "Toplam Linkler", count: 8, Icon: LuLink },
+    {
+      label: "Toplam Ziyaret",
+      count: Clicks?.length || 0,
+      Icon: GoProjectSymlink,
+    },
+    { label: "Toplam Linkler", count: Links?.length || 0, Icon: LuLink },
   ];
 
   return (
