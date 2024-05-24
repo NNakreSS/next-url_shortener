@@ -12,7 +12,7 @@ import ClickType from "@/types/ClickType";
 function LastClickCard({ Clicks }: { Clicks: ClickType[] | null }) {
   const labels = ["Link", "Cihaz", "Zaman"];
   const lastClicks = Clicks?.slice(0, 5);
-  
+
   return (
     <LastViewCard Icon={GrDocumentUser} label="Son Tıklamalar">
       {lastClicks?.length! < 0 ? (
@@ -42,9 +42,9 @@ function LastClickCard({ Clicks }: { Clicks: ClickType[] | null }) {
                 </Table.Cell>
                 <Table.Cell>{click.device}</Table.Cell>
                 <Table.Cell>
-                  <span className="flex items-center justify-center gap-1 cursor-pointer">
+                  <span className="flex items-center justify-center gap-1">
                     <IoTimeOutline size={20} />
-                    {click.timestamp.toDateString()}
+                    {click.timestamp.toLocaleString()}
                   </span>
                 </Table.Cell>
               </Table.Row>
