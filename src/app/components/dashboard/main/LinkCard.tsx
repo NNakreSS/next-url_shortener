@@ -3,7 +3,6 @@ import { LuLink } from "react-icons/lu";
 import Button from "../../general/Button";
 
 function LinkCard({ link }: { link: LinkType }) {
-  console.log(link);
   return (
     <div className="space-y-5 bg-off-wite rounded-lg p-3">
       {/* header */}
