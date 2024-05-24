@@ -19,15 +19,13 @@ export default async function Dashboard() {
 
   const Links = await getUserLinks(currentUser?.id);
   const Clicks = await getUserClicks(currentUser?.id);
-
-  console.log(Clicks);
   return (
     <>
-      <TotalCards />
+      <TotalCards Clicks={Clicks} Links={Links} />
       <div className="grid grid-cols-3 gap-5 mb-5">
         <LinkManagment Links={Links} className="col-span-full xl:col-span-2" />
         <div className="col-span-full xl:col-span-1">
-          <LastClickCard />
+          <LastClickCard Clicks={Clicks} />
         </div>
       </div>
     </>
