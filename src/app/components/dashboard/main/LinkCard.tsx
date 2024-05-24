@@ -23,12 +23,12 @@ function LinkCard({ link }: { link: LinkType }) {
         <input
           className="outline-none border border-light-aqua text-light-aqua font-light text-lg p-2 rounded-lg w-full"
           type="url"
-          value={link.originalUrl}
+          defaultValue={link.originalUrl}
         />
         <input
           className="outline-none border-none p-2 rounded-lg w-full text-dark-green font-light text-lg"
           type="text"
-          value={link.shortUrl}
+          defaultValue={link.shortUrl}
         />
       </div>
 
@@ -36,7 +36,7 @@ function LinkCard({ link }: { link: LinkType }) {
       <div className="flex gap-2 items-center">
         <span className="font-normal text-xl">Kısaltma Tarihi :</span>
         <div className="space-x-3 text-lg font-light text-black/80">
-          <span>{link.createdAt.toISOString()}</span>
+          <span>{link.createdAt.toLocaleString()}</span>
         </div>
       </div>
 
