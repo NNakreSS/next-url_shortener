@@ -7,20 +7,15 @@ import { IoTimeOutline } from "react-icons/io5";
 // components
 import Table from "../../general/LastViewTable";
 import LastViewCard from "../../general/LastViewCard";
+import ClickType from "@/types/ClickType";
 
-const lastClicks = [
-  { tag: "discord", date: "14:58:13", device: "mobil" },
-  { tag: "discord", date: "14:58:13", device: "mobil" },
-  { tag: "discord", date: "14:58:13", device: "mobil" },
-  { tag: "discord", date: "14:58:13", device: "mobil" },
-  { tag: "discord", date: "14:58:13", device: "mobil" },
-];
-const labels = ["Link", "Cihaz", "Zaman"];
+function LastClickCard({ Clicks }: { Clicks: ClickType[] | null }) {
+  const labels = ["Link", "Cihaz", "Zaman"];
+  const lastClicks = Clicks?.slice(0, 5);
 
-function LastClickCard() {
   return (
     <LastViewCard Icon={GrDocumentUser} label="Son Tıklamalar">
-      {lastClicks?.length < 0 ? (
+      {lastClicks?.length! < 0 ? (
         <div className="flex items-center justify-center py-10">
           <span>Bugünlük Tıklanma Yok</span>
         </div>
@@ -34,11 +29,11 @@ function LastClickCard() {
             </Table.Row>
           </Table.Head>
           <Table.Body>
-            {lastClicks.map((click, i) => (
+            {lastClicks?.map((click, i) => (
               <Table.Row key={i}>
                 <Table.Cell>
                   <span className="flex items-center justify-center gap-1 cursor-pointer group">
-                    {click.tag}{" "}
+                    {click.Link.shortUrl}
                     <LiaExternalLinkAltSolid
                       size={20}
                       className="group-hover:text-black"
@@ -49,7 +44,7 @@ function LastClickCard() {
                 <Table.Cell>
                   <span className="flex items-center justify-center gap-1 cursor-pointer">
                     <IoTimeOutline size={20} />
-                    {click.date}
+                    {click.timestamp.toDateString()}
                   </span>
                 </Table.Cell>
               </Table.Row>
