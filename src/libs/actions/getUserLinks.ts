@@ -12,6 +12,9 @@ export default async function getUserLinks(id: string) {
       orderBy: {
         createdAt: "desc",
       },
+      include: {
+        Click: true,
+      },
     });
 
     return links;
