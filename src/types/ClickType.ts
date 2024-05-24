@@ -6,5 +6,5 @@ export default interface ClickType {
   userId: string;
   timestamp: Date;
   device: string;
-  Link: Link;
+  link: Link;
 }
