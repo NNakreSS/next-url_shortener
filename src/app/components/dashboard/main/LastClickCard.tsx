@@ -12,7 +12,7 @@ import ClickType from "@/types/ClickType";
 function LastClickCard({ Clicks }: { Clicks: ClickType[] | null }) {
   const labels = ["Link", "Cihaz", "Zaman"];
   const lastClicks = Clicks?.slice(0, 5);
-
+  
   return (
     <LastViewCard Icon={GrDocumentUser} label="Son Tıklamalar">
       {lastClicks?.length! < 0 ? (
@@ -33,7 +33,7 @@ function LastClickCard({ Clicks }: { Clicks: ClickType[] | null }) {
               <Table.Row key={i}>
                 <Table.Cell>
                   <span className="flex items-center justify-center gap-1 cursor-pointer group">
-                    {click.Link.shortUrl}
+                    {click.link.shortUrl}
                     <LiaExternalLinkAltSolid
                       size={20}
                       className="group-hover:text-black"
