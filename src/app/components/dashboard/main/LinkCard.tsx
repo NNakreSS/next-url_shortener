@@ -1,3 +1,5 @@
+"use client";
+
 import LinkType from "@/types/LinkType";
 import { LuLink } from "react-icons/lu";
 import Button from "../../general/Button";

@@ -1,3 +1,5 @@
+"use client";
+
 import { AiOutlineLoading } from "react-icons/ai";
 
 interface ButtonProps {

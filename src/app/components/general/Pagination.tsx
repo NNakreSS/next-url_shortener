@@ -1,7 +1,5 @@
 "use client";
 import clsx from "clsx";
-import React, { useState } from "react";
-
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 interface PaginationProps {

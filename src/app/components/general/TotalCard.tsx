@@ -1,3 +1,5 @@
+"use client";
+
 import TotalCardProps from "@/types/TotalCardType";
 
 function TotalCard({ Icon, count, info, label }: TotalCardProps) {

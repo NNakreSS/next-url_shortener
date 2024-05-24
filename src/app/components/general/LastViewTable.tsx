@@ -1,3 +1,5 @@
+"use client";
+
 interface LastViewTableProps {
   children: React.ReactNode;
 }
