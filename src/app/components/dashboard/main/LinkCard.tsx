@@ -3,6 +3,7 @@ import { LuLink } from "react-icons/lu";
 import Button from "../../general/Button";
 
 function LinkCard({ link }: { link: LinkType }) {
+  console.log(link);
   return (
     <div className="space-y-5 bg-off-wite rounded-lg p-3">
       {/* header */}
@@ -14,7 +15,7 @@ function LinkCard({ link }: { link: LinkType }) {
         <div className="rounded-md bg-gray/80 w-[3px] h-3/4" />
         <div className="text-2xl font-light text-gray/80">
           <span>Toplam Tıklama :</span>
-          <span>{link.clickCount}</span>
+          <span>{link.Click?.length || 0}</span>
         </div>
       </div>
 
