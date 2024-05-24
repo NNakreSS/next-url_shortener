@@ -11,7 +11,7 @@ interface LinkManagmentProps {
   Links: LinkType[] | null;
 }
 
-async function LinkManagment({ className, Links }: LinkManagmentProps) {
+function LinkManagment({ className, Links }: LinkManagmentProps) {
   return (
     <section className={clsx(className, "flex flex-col gap-5")}>
       <Shortener />
