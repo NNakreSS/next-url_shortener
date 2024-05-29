@@ -8,6 +8,7 @@ import { IoTimeOutline } from "react-icons/io5";
 import Table from "../../general/LastViewTable";
 import LastViewCard from "../../general/LastViewCard";
 import ClickType from "@/types/ClickType";
+import Link from "next/link";
 
 function LastClickCard({ Clicks }: { Clicks: ClickType[] | null }) {
   const labels = ["Link", "Cihaz", "Zaman"];
@@ -32,13 +33,15 @@ function LastClickCard({ Clicks }: { Clicks: ClickType[] | null }) {
             {lastClicks?.map((click, i) => (
               <Table.Row key={i}>
                 <Table.Cell>
-                  <span className="flex items-center justify-center gap-1 cursor-pointer group">
-                    {click.link.shortUrl}
-                    <LiaExternalLinkAltSolid
-                      size={20}
-                      className="group-hover:text-black"
-                    />
-                  </span>
+                  <Link href={click.link.originalUrl} target="_blank">
+                    <span className="flex items-center justify-center gap-1 cursor-pointer group">
+                      {click.link.shortUrl}
+                      <LiaExternalLinkAltSolid
+                        size={20}
+                        className="group-hover:text-black"
+                      />
+                    </span>
+                  </Link>
                 </Table.Cell>
                 <Table.Cell>{click.device}</Table.Cell>
                 <Table.Cell>
