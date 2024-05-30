@@ -3,8 +3,40 @@
 import LinkType from "@/types/LinkType";
 import { LuLink } from "react-icons/lu";
 import Button from "../../general/Button";
+import { useState } from "react";
+import linkValidate from "@/helpers/linkValidate";
 
 function LinkCard({ link }: { link: LinkType }) {
+  const [originalUrl, setOriginalUrl] = useState<string>(link.originalUrl);
+  const [shortUrl, setShortUrl] = useState<string>(link.shortUrl);
+
+  const inputHandleShortUrl = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    setShortUrl(e.target.value);
+  };
+
+  const inputHandleLongUrl = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setOriginalUrl(e.target.value);
+  };
+
+  const clickHandleEdit = () => {
+    if (originalUrl === link.originalUrl && shortUrl === link.shortUrl) {
+      return; // TODO: alert gösterimi yapılacak..
+    }
+
+    const validate = linkValidate(originalUrl);
+    // TODO : Url Tag için de validate fonksyon eklenmeli
+    if (!validate) {
+      console.error("Geçersiz Url");
+      return;
+    }
+    try {
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="space-y-5 bg-off-wite rounded-lg p-3">
       {/* header */}
@@ -25,12 +57,14 @@ function LinkCard({ link }: { link: LinkType }) {
         <input
           className="outline-none border border-light-aqua text-light-aqua font-light text-lg p-2 rounded-lg w-full"
           type="url"
-          defaultValue={link.originalUrl}
+          defaultValue={originalUrl}
+          onChange={inputHandleLongUrl}
         />
         <input
           className="outline-none border-none p-2 rounded-lg w-full text-dark-green font-light text-lg"
           type="text"
-          defaultValue={link.shortUrl}
+          defaultValue={shortUrl}
+          onChange={inputHandleShortUrl}
         />
       </div>
 
@@ -47,6 +81,7 @@ function LinkCard({ link }: { link: LinkType }) {
         <Button
           label="Düzenle"
           className="w-full bg-light-aqua text-white text-lg h-8 rounded-lg"
+          onClick={clickHandleEdit}
         />
         <Button
           label="Sil"
