@@ -5,6 +5,7 @@ import LastClickCard from "@/app/components/dashboard/main/LastClickCard";
 import LinkManagment from "@/app/components/dashboard/main/LinkManagment";
 import TotalCards from "@/app/components/dashboard/main/TotalCards";
 import LinkType from "@/types/LinkType";
+// redux
 
 export default async function Dashboard() {
   const currentUser = await getCurrentUser();
