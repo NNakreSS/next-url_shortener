@@ -1,5 +1,3 @@
-"use client";
-
 import { clsx } from "clsx";
 // components
 import Shortener from "../../general/Shortener";
