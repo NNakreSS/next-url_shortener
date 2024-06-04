@@ -5,10 +5,29 @@ import { LuLink } from "react-icons/lu";
 import Button from "../../general/Button";
 import { useState } from "react";
 import linkValidate from "@/helpers/linkValidate";
+import axios from "axios";
+import { Link } from "@prisma/client";
+import { toast } from "react-toastify";
 
-function LinkCard({ link }: { link: LinkType }) {
+interface props {
+  link: LinkType;
+  setLinks?: (prev?: any) => void;
+}
+
+type toastType = "success" | "error" | "warning";
+
+function LinkCard({ link, setLinks }: props) {
   const [originalUrl, setOriginalUrl] = useState<string>(link.originalUrl);
   const [shortUrl, setShortUrl] = useState<string>(link.shortUrl);
+
+  const notify = (type: toastType, message: string) =>
+    toast[type](message, {
+      position: "top-right",
+      autoClose: 3000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
 
   const inputHandleShortUrl = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -20,20 +39,60 @@ function LinkCard({ link }: { link: LinkType }) {
     setOriginalUrl(e.target.value);
   };
 
-  const clickHandleEdit = () => {
+  const clickHandleEdit = async () => {
     if (originalUrl === link.originalUrl && shortUrl === link.shortUrl) {
-      return; // TODO: alert gösterimi yapılacak..
+      console.log("Edit link", link.originalUrl);
+      notify("warning", "Önce bir değişiklik yapmalısın");
+      return;
     }
 
     const validate = linkValidate(originalUrl);
-    // TODO : Url Tag için de validate fonksyon eklenmeli
     if (!validate) {
-      console.error("Geçersiz Url");
+      notify("error", "Geçersiz URL");
       return;
     }
+
+    const { data } = await axios.put("api/links/" + link.id, {
+      originalUrl: originalUrl,
+      shortUrl: shortUrl,
+    });
+
+    if (data.success) {
+      setLinks?.((prev: Link[]) => {
+        const newLinks = [...prev];
+        const index = newLinks.findIndex((l) => l.id === link.id);
+        newLinks[index] = data.link;
+        return newLinks;
+      });
+      notify("success", "Güncelleme başarılı");
+    } else {
+      notify("error", "Bir hata meydana geldi");
+    }
+
     try {
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const clickHandleDelete = async () => {
+    if (!window.confirm("Bu linki silmek istediğinize emin misiniz?")) {
+      return;
+    }
+    const { data } = await axios.delete("api/links/" + link.id);
+
+    if (!data.error) {
+      setLinks?.((prev: Link[]) => {
+        const newLinks = [...prev];
+        const index = newLinks.findIndex((l) => l.id === link.id);
+        newLinks.splice(index, 1);
+        console.log(newLinks);
+        return newLinks;
+      });
+
+      notify("success", "Link başarıyla silindi");
+    } else {
+      notify("error", data.message);
     }
   };
 
@@ -86,6 +145,7 @@ function LinkCard({ link }: { link: LinkType }) {
         <Button
           label="Sil"
           className="w-full bg-Pink text-white text-lg h-8 rounded-lg"
+          onClick={clickHandleDelete}
         />
       </div>
     </div>
