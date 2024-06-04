@@ -1,19 +1,17 @@
+"use client";
 import { clsx } from "clsx";
 // components
 import Shortener from "../../general/Shortener";
 import LinksPreview from "./LinksPreview";
-import LinkType from "@/types/LinkType";
+import { useDashboard } from "@/contexts/DashboardContext";
 
-interface LinkManagmentProps {
-  className?: string;
-  Links: LinkType[] | null;
-}
+function LinkManagment({ className }: { className: string }) {
+  const { setLinks, Links } = useDashboard();
 
-function LinkManagment({ className, Links }: LinkManagmentProps) {
   return (
     <section className={clsx(className, "flex flex-col gap-5")}>
-      <Shortener />
-      <LinksPreview Links={Links} />
+      <Shortener setLinks={setLinks} />
+      <LinksPreview Links={Links} setLinks={setLinks} />
     </section>
   );
 }
