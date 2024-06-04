@@ -7,10 +7,12 @@ import { IoTimeOutline } from "react-icons/io5";
 // components
 import Table from "../../general/LastViewTable";
 import LastViewCard from "../../general/LastViewCard";
-import ClickType from "@/types/ClickType";
 import Link from "next/link";
+import ClickType from "@/types/ClickType";
+import { useDashboard } from "@/contexts/DashboardContext";
 
-function LastClickCard({ Clicks }: { Clicks: ClickType[] | null }) {
+function LastClickCard() {
+  const Clicks = useDashboard().Clicks as ClickType[];
   const labels = ["Link", "Cihaz", "Zaman"];
   const lastClicks = Clicks?.slice(0, 5);
 
