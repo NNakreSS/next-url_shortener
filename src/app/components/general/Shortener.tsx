@@ -8,6 +8,7 @@ import Button from "./Button";
 import linkValidate from "@/helpers/linkValidate";
 // links
 import { LuLink } from "react-icons/lu";
+import { toast } from "react-toastify";
 
 // random tag için charlar
 const char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -26,7 +27,7 @@ const randomTag = (len = 5): string => {
   return result;
 };
 
-function Shortener() {
+function Shortener({ setLinks }: { setLinks?: (prev?: any) => void }) {
   const [originalUrl, setOriginalUrl] = useState<string>("");
   const [shortUrl, setShortUrl] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
@@ -44,13 +45,21 @@ function Shortener() {
         setShortUrl(randTag);
       }
 
-      const response = await axios.post("/api/link", {
+      const response = await axios.post("/api/links", {
         originalUrl,
         shortUrl,
       });
-
+      if (setLinks) {
+        toast.success("Link kısaltma başarılı", {
+          position: "top-right",
+          autoClose: 3000,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setLinks((prev: any) => [response.data.link, ...prev]);
+      }
       setError(null);
-      console.log(response.data);
     } catch (err) {
       if (axios.isAxiosError(err) && err.response) {
         const error = err.response.data.error;
