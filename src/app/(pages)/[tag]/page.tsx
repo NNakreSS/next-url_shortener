@@ -1,8 +1,7 @@
-import getLinkFromShortUrl from "@/libs/actions/getLongUrl";
 import { PATH_DEFAULT } from "@/libs/routes";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
-import addClickOnLink from "@/libs/actions/addClickOnLink";
+import { addClickOnLink, getLinkFromShortUrl } from "@/libs/actions";
 
 async function page({ params: { tag } }: { params: { tag: string } }) {
   const Link = await getLinkFromShortUrl(tag);
