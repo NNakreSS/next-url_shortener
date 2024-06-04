@@ -8,14 +8,11 @@ import { GoProjectSymlink } from "react-icons/go";
 import { LuLink } from "react-icons/lu";
 import { Click, Link } from "@prisma/client";
 import filterTimeStamp from "@/helpers/filterTimeStamp";
+import { useDashboard } from "@/contexts/DashboardContext";
 
-function TotalCards({
-  Clicks,
-  Links,
-}: {
-  Clicks: Click[] | null;
-  Links: Link[] | null;
-}) {
+function TotalCards() {
+  const { Clicks, Links } = useDashboard();
+
   const lastClicks = filterTimeStamp(Clicks, 5, "timestamp");
 
   const totals: TotalCardProps[] = [
