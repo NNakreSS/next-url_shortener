@@ -3,7 +3,7 @@ import prisma from "@/libs/prismadb";
 /**
  * @param id {String} user identifier
  */
-export default async function getUserLinkClicks(id: string) {
+export async function getUserLinkClicks(id: string) {
   try {
     const Clicks = await prisma.click.findMany({
       where: {

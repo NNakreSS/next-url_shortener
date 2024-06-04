@@ -1,7 +1,7 @@
 import prisma from "../prismadb";
 import { Link } from "@prisma/client";
 
-export default async function addClickOnLink(
+export async function addClickOnLink(
   Link: Link | string,
   device: "mobile" | "desktop"
 ) {

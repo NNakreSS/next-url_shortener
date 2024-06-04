@@ -6,7 +6,7 @@ import prisma from "@/libs/prismadb";
  * @returns long url
  */
 
-export default async function getLinkFromShortUrl(shortUrl: string) {
+export async function getLinkFromShortUrl(shortUrl: string) {
   const originalUrl = await prisma.link.findFirst({
     where: {
       shortUrl: shortUrl,
