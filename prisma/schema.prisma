@@ -28,7 +28,7 @@ model Link {
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
     userId      String   @db.ObjectId
-    user        User     @relation("UserLinks", fields: [userId], references: [id])
+    user        User     @relation("UserLinks", fields: [userId], references: [id], onDelete: Cascade)
     Click       Click[]
 }
 
@@ -38,8 +38,8 @@ model Click {
     userId    String   @db.ObjectId
     timestamp DateTime @default(now())
     device    Device
-    link      Link     @relation(fields: [linkId], references: [id])
-    user      User     @relation(fields: [userId], references: [id])
+    link      Link     @relation(fields: [linkId], references: [id], onDelete: Cascade)
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 enum Device {
