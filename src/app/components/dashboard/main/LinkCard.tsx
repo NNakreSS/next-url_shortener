@@ -102,10 +102,12 @@ function LinkCard({ link, setLinks }: props) {
       <div className="flex items-center justify-start gap-3 h-10 border-b-2 py-6">
         <div className="flex items-center justify-start gap-2">
           <LuLink size={24} />
-          <span className="font-light text-2xl">{link.shortUrl}</span>
+          <span className="font-light text-xl lg:text-2xl">
+            {link.shortUrl}
+          </span>
         </div>
         <div className="rounded-md bg-gray/80 w-[3px] h-3/4" />
-        <div className="text-2xl font-light text-gray/80">
+        <div className="text-lg lg:text-2xl font-light text-gray/80">
           <span>Toplam Tıklama :</span>
           <span>{link.Click?.length || 0}</span>
         </div>
@@ -120,7 +122,7 @@ function LinkCard({ link, setLinks }: props) {
           onChange={inputHandleLongUrl}
         />
         <input
-          className="outline-none border-none p-2 rounded-lg w-full text-dark-green font-light text-lg"
+          className="outline-none border-none p-2 rounded-lg w-1/2 lg:w-full text-dark-green font-light text-lg"
           type="text"
           defaultValue={shortUrl}
           onChange={inputHandleShortUrl}
@@ -136,7 +138,7 @@ function LinkCard({ link, setLinks }: props) {
       </div>
 
       {/* buttons */}
-      <div className="w-1/2 flex gap-3">
+      <div className="w-full lg:w-1/2 flex gap-3">
         <Button
           label="Düzenle"
           className="w-full bg-light-aqua text-white text-lg h-8 rounded-lg"

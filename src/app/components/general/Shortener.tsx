@@ -85,28 +85,30 @@ function Shortener({ setLinks }: { setLinks?: (prev?: any) => void }) {
 
   return (
     <div className="bg-white shadow-cover p-2 rounded-lg box-border space-y-2">
-      <div className="flex justify-between items-center gap-3 h-10">
-        <div className="flex gap-3 border border-light-aqua w-full h-full p-2 justify-start items-center rounded-lg box-border">
-          <LuLink className="text-light-aqua" size={20} />
-          <input
-            placeholder="https://link.nakres.dev/"
-            type="url"
-            className="outline-none border-none bg-transparent w-full font-light"
-            onChange={urlChangeHandler}
-          />
-        </div>
-        <div className="w-2/6 flex gap-3 border border-light-aqua h-full p-2 justify-start items-center rounded-lg box-border">
-          <LuLink className="text-light-aqua" size={20} />
-          <input
-            placeholder="Tag"
-            type="url"
-            className="outline-none border-none bg-transparent w-full font-light"
-            onChange={tagChangeHandler}
-          />
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-3 lg:h-10">
+        <div className="w-full flex gap-2 flex-col lg:flex-row">
+          <div className="flex gap-3 border border-light-aqua w-full p-2 justify-start items-center rounded-lg box-border">
+            <LuLink className="text-light-aqua" size={20} />
+            <input
+              placeholder="https://link.nakres.dev/"
+              type="url"
+              className="outline-none border-none bg-transparent w-full font-light"
+              onChange={urlChangeHandler}
+            />
+          </div>
+          <div className="w-full lg:w-2/6 flex gap-3 border border-light-aqua p-2 justify-start items-center rounded-lg box-border">
+            <LuLink className="text-light-aqua" size={20} />
+            <input
+              placeholder="Tag"
+              type="url"
+              className="outline-none border-none bg-transparent w-full font-light"
+              onChange={tagChangeHandler}
+            />
+          </div>
         </div>
         <Button
           label="Kısalt"
-          className="flex items-center justify-center bg-light-aqua text-white rounded-lg text-2xl px-5 font-normal h-full box-border"
+          className="flex items-center justify-center bg-light-aqua text-white rounded-lg text-2xl px-5 py-2 lg:py-0 font-normal h-full w-full lg:w-1/5 box-border"
           onClick={clickHandle}
         />
       </div>
