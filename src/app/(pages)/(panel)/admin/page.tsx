@@ -1,7 +1,7 @@
 import AdminTotalCards from "@/app/components/admin/main/AdminTotalCards";
 import LastLinksCard from "@/app/components/admin/main/LastLinks";
 import LastUsersCard from "@/app/components/admin/main/LastUsers";
-import LastClickCard from "@/app/components/dashboard/main/LastClickCard";
+import LastClickCard from "@/app/components/admin/main/LastClicks";
 
 export default function Admin() {
   return (
